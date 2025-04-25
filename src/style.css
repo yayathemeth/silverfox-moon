@@ -1,0 +1,163 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Zen+Dots&display=swap');
+
+
+body {
+  margin: 0;
+  background-color: #000;
+  color: #00ff99;
+  font-family: 'Pixelify Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  max-width: 400px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.02);
+  /*border: 1px solid #00ff9960;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ff9960;*/
+}
+
+/*.title {
+  font-family: 'Zen Dots', sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}*/
+
+img {
+  width: 160px;
+  height: auto;
+  margin: 1.5rem 0;
+  filter: drop-shadow(0 0 10px #00ff99);
+}
+
+.astro {
+  font-size: 0.9rem;
+  color: #ffffff;
+  margin: 1rem 0;
+  max-width: 300px;
+  line-height: 1.4;
+}
+
+footer {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.title {
+    font-family: 'Zen Dots', sans-serif;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    position: relative;
+    color: #00ff99;
+    text-shadow: 0 0 2px #00ff99;
+    animation: glitch 2s infinite;
+  }
+  
+  .title::before,
+  .title::after {
+    content: 'MOON';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    color: #00ff99;
+    background: black;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+  
+  .title::before {
+    animation: glitchTop 2s infinite;
+    color: #ff00c8;
+  }
+  
+  .title::after {
+    animation: glitchBottom 2s infinite;
+    color: #00ffff;
+  }
+  
+  @keyframes glitch {
+    0% {
+      text-shadow: 0 0 2px #00ff99;
+    }
+    20% {
+      text-shadow: 2px 0 #ff00c8, -2px 0 #00ffff;
+    }
+    40% {
+      text-shadow: -1px 0 #ff00c8, 1px 0 #00ffff;
+    }
+    60% {
+      text-shadow: 1px 0 #ff00c8, -1px 0 #00ffff;
+    }
+    80% {
+      text-shadow: -2px 0 #ff00c8, 2px 0 #00ffff;
+    }
+    100% {
+      text-shadow: 0 0 2px #00ff99;
+    }
+  }
+  
+  @keyframes glitchTop {
+    0% {
+      clip: rect(0, 9999px, 0, 0);
+    }
+    10% {
+      clip: rect(0, 9999px, 12px, 0);
+      transform: translate(-2px, -2px);
+    }
+    100% {
+      clip: rect(0, 9999px, 0, 0);
+      transform: none;
+    }
+  }
+  
+  @keyframes glitchBottom {
+    0% {
+      clip: rect(0, 9999px, 0, 0);
+    }
+    10% {
+      clip: rect(15px, 9999px, 28px, 0);
+      transform: translate(2px, 2px);
+    }
+    100% {
+      clip: rect(0, 9999px, 0, 0);
+      transform: none;
+    }
+  }
+  
+
+  .moon-emoji {
+    font-size: 10rem;
+    margin: 1rem 0;
+  }
+
+  .date-picker {
+    margin: 0 0 1rem 0; /* top | right | bottom | left */
+    padding: 0.5rem 1rem;
+    background-color: #000;
+    color: #00ff99;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    appearance: none;
+  }
+  
+  .date-picker::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+  
+  
