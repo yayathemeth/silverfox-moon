@@ -13,7 +13,7 @@ body {
   align-items: center;
   min-height: 100vh;
   text-align: center;
-  padding: 2rem;
+  padding: 0 1rem;
 }
 
 .app {
@@ -24,6 +24,8 @@ body {
   max-width: 400px;
   width: 100%;
   background: rgba(0, 0, 0, 0.02);
+  margin: 0 auto;
+  box-sizing: border-box;
   /*border: 1px solid #00ff9960;
   border-radius: 12px;
   box-shadow: 0 0 20px #00ff9960;*/
@@ -160,4 +162,19 @@ footer {
     filter: invert(1);
   }
   
+  @media (max-width: 480px) {
+    .title {
+      font-size: 3rem;
+      margin-top: 1rem;
+    }
+  
+    .moon-emoji {
+      font-size: 8rem;
+    }
+  
+    .astro {
+      font-size: 0.85rem;
+      padding: 0 1rem;
+    }
+  }
   
