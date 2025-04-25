@@ -8,14 +8,16 @@ function App() {
   // Fetch moon data from backend
   const fetchMoonInfo = async (selectedDate) => {
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/moon-info?date=${selectedDate}`);
+      const backendUrl = import.meta.env.VITE_BACKEND_URL;
+      const res = await fetch(`${backendUrl}/api/moon-info?date=${selectedDate}`);
       const data = await res.json();
-      console.log("Fetched data:", data); // ✅ for debugging
-      setMoonData(data); // <--- THIS updates your UI
+      console.log("Fetched data:", data);
+      setMoonData(data);
     } catch (err) {
       console.error("Failed to fetch moon data:", err);
     }
   };
+  
   
 
   // Fetch moon info on first load and when date changes
