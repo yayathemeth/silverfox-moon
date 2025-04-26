@@ -17,8 +17,6 @@ function App() {
       console.error("Failed to fetch moon data:", err);
     }
   };
-  
-  
 
   // Fetch moon info on first load and when date changes
   useEffect(() => {
@@ -33,7 +31,6 @@ function App() {
   return (
     <div className="app">
       <h1 className="title">MOON</h1>
-      {/*<p>date : {date.split('-').reverse().join('.')}</p>*/}
 
       <input
         type="date"
@@ -43,16 +40,20 @@ function App() {
       />
 
       {moonData ? (
-  <>
-    <div className="moon-emoji">{moonData.emoji}</div>
-    <p>phase : {moonData.phase}</p>
-    <p>sign : {moonData.sign}</p>
-    <p className="astro">{moonData.description}</p>
-  </>
-) : (
-  <p className="astro">Loading moon data...</p>
-)}
+        <>
+          <div className="moon-emoji">{moonData.emoji}</div>
+          <p>phase : {moonData.phase}</p>
+          <p>sign : {moonData.sign}</p>
+          <p className="astro">{moonData.description}</p>
 
+          {/* NEW emotional dive text */}
+          <div className="moon-dive">
+            <p>{moonData.emotion_text}</p>
+          </div>
+        </>
+      ) : (
+        <p className="astro">Loading moon data...</p>
+      )}
 
       <footer>powered by Silverfox</footer>
     </div>
