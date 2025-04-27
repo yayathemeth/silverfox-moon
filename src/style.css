@@ -177,35 +177,54 @@ footer {
 
   .loading-spinner {
     display: inline-block;
-    animation: glitch 0.8s infinite;
+    animation: spinnerGlitch 0.8s infinite;
     font-weight: bold;
   }
   
   @keyframes glitch {
     0% {
-      transform: translate(0, 0) scale(1);
-      opacity: 0.7;
+      text-shadow: 0 0 2px #00ff99;
     }
     20% {
-      transform: translate(-1px, 1px) scale(1.1);
-      opacity: 1;
+      text-shadow: 2px 0 #ff00c8, -2px 0 #00ffff;
     }
     40% {
-      transform: translate(1px, -1px) scale(0.95);
-      opacity: 0.8;
+      text-shadow: -1px 0 #ff00c8, 1px 0 #00ffff;
     }
     60% {
-      transform: translate(-1px, -1px) scale(1.05);
-      opacity: 1;
+      text-shadow: 1px 0 #ff00c8, -1px 0 #00ffff;
     }
     80% {
-      transform: translate(1px, 1px) scale(1);
-      opacity: 0.9;
+      text-shadow: -2px 0 #ff00c8, 2px 0 #00ffff;
     }
     100% {
-      transform: translate(0, 0) scale(1);
-      opacity: 0.7;
+      text-shadow: 0 0 2px #00ff99;
     }
   }
   
   
+  
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: rgba(0, 255, 153, 0.03); /* light green glow */
+    animation: screenFlicker 2s infinite;
+    z-index: 1;
+  }
+  
+  @keyframes screenFlicker {
+    0% {
+      opacity: 0.03;
+    }
+    50% {
+      opacity: 0.06;
+    }
+    100% {
+      opacity: 0.03;
+    }
+  }
