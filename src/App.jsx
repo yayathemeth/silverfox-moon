@@ -4,6 +4,10 @@ import './style.css';
 function App() {
   const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
   const [moonData, setMoonData] = useState(null);
+  const [loadingFrame, setLoadingFrame] = useState(0);
+
+  // Spinner frames
+  const spinnerFrames = ['|', '/', '-', '\\'];
 
   // Fetch moon data from backend
   const fetchMoonInfo = async (selectedDate) => {
@@ -22,6 +26,16 @@ function App() {
   useEffect(() => {
     fetchMoonInfo(date);
   }, [date]);
+
+  // Handle spinner animation
+  useEffect(() => {
+    if (!moonData) {
+      const interval = setInterval(() => {
+        setLoadingFrame((prev) => (prev + 1) % spinnerFrames.length);
+      }, 200); // every 200ms
+      return () => clearInterval(interval);
+    }
+  }, [moonData]);
 
   // Handle user date change
   const handleDateChange = (e) => {
@@ -52,7 +66,9 @@ function App() {
           </div>
         </>
       ) : (
-        <p className="astro">Loading moon data...</p>
+        <div className="astro">
+          Loading moon data... <span className="loading-spinner">{spinnerFrames[loadingFrame]}</span>
+        </div>
       )}
 
       <footer>powered by Silverfox</footer>
